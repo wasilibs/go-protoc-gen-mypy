@@ -1,0 +1,5 @@
+version: v1
+plugins:
+  - plugin: mypy
+    out: ../build/buf/python
+    path: ["go", "run", "../cmd/protoc-gen-mypy"]

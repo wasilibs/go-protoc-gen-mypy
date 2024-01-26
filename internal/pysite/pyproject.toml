@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "go-protoc-gen-mypy"
+version = "0.1.0"
+description = "python site packages with mypy-protobuf"
+authors = ["wasilibs authors"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mypy-protobuf = "^3.5.0"
