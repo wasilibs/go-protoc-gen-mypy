@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/tetratelabs/wazero"
+	"github.com/tetratelabs/wazero/experimental/opt"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
 	"github.com/tetratelabs/wazero/sys"
 	"github.com/wasilibs/go-protoc-gen-mypy/internal/pysite"
@@ -18,7 +19,7 @@ import (
 func Run(name string, cmdArgs []string, wasm []byte, stdin io.Reader, stdout io.Writer, stderr io.Writer, cwd string) int {
 	ctx := context.Background()
 
-	rt := wazero.NewRuntime(ctx)
+	rt := wazero.NewRuntimeWithConfig(ctx, opt.NewRuntimeConfigOptimizingCompiler())
 
 	wasi_snapshot_preview1.MustInstantiate(ctx, rt)
 
